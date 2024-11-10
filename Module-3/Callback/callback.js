@@ -48,13 +48,13 @@ console.log("Start Timer")
 
 let text = "hello123"
 
-// const promise = new Promise((resolve, reject) => {
-//     if (text == "hello") {
-//         resolve("There is a text")
-//     } else {
-//         reject("There is no text")
-//     }
-// })
+const promise = new Promise((resolve, reject) => {
+    if (text == "hello") {
+        resolve("There is a text")
+    } else {
+        reject("There is no text")
+    }
+})
 
 // console.log(promise)
 
@@ -77,5 +77,10 @@ myPromise.then((result) => {
     console.error(error)
 })
 
-//promise chaining
+//promise chaining => .then(), error => .catch()
 
+createOrder(cart)
+    .then((orderId) => proceedToPayment(orderId))
+    .then((paymentInfo) => showOrderSummary(paymentInfo))
+    .then((paymentInfo) => updateOrderSection(paymentInfo))
+    .then((paymentInfo) => updateWallet(paymentInfo))
