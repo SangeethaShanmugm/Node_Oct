@@ -26,3 +26,86 @@ C - Create  => add/insert   => post
 R - Read    => getting      => get
 U - Update  => edit/update  => put
 D - Delete  => delete       => delete 
+
+
+Database
+--------------
+
+Store data
+
+
+DBMS -> software => MySQL WorkBench, Oracle SQLDeveloper
+
+Data => Database => DBMS
+
+relational Database || structured => SQL, MySQL, Oracle, PostgresSQL, SQL Server, Microsoft SQL Server, SQLLite => Table => rows & columns
+non-relational Database || unstructured => MongoDB, Cassandra, CouchDB, Redis
+
+Evolution of DB
+-----------------
+
+
+flat-file system => object relational system
+
+IBM => 1970 => relational database model => Edger Codd => Table    
+
+RDBMS => 1980 & 1990
+
+ACID property
+
+columns = > field
+row => record
+
+Non-relational database
+-------------------------
+
+>>No Schema => blueprint of a data / shape of data 
+>>Flexible Schema => normal key, different key, extra key
+
+
+name   age    email
+jack   20     jack@gmail.com
+john   30     john@gmail.com
+
+>> How data is stored in mongodb? => Smart & efficient way to store => BSON(Binary JSON) => store
+>> retrieve => JSON
+>> 1 row => 1 object({}) => document {}
+>> table => collection
+>> Embedded document => nested => one doc {} =>100 levels ok document => 16 mb of data => 10,000 lines of text
+
+mongodb server - mongod, mongo shell - mongo, mongoCompass GUI
+
+https://www.mongodb.com/try/download/community
+
+https://stackoverflow.com/questions/51224959/mongo-is-not-recognized-as-an-internal-or-external-command-operable-program-o
+
+
+mongo --version -> to check version
+
+show dbs => list all dbs
+use dbName => switch/create a db
+show collections => list all collections in db
+db  => current db
+
+CRUD Operation method
+-----------------------
+
+C - Create  => add/insert   => post  => db.collection.insert() => insertOne(), insertMany()
+R - Read    => getting      => get   => db.collection.find() 
+U - Update  => edit/update  => put   => db.collection.update()  => updateOne(), updateMany()
+D - Delete  => delete       => delete => db.collection.delete()  => deleteOne(), deleteMany()
+
+
+{
+    name:"Mick",
+    age: 20
+}
+
+update({name: 'Mick'})
+
+
+{
+   name: 'Mick'
+}
+
+replace({name: 'Mick'})
