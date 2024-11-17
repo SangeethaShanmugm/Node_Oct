@@ -109,3 +109,17 @@ update({name: 'Mick'})
 }
 
 replace({name: 'Mick'})
+
+Express Router:
+----------------
+
+index.js
+------------
+import { moviesRouter } from "./routes/moviesRouter.js"
+app.use("/movies", moviesRouter);
+
+
+moviesRouter.js
+--------------------
+const router = express.Router();
+export const moviesRouter = router;
