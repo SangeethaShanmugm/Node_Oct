@@ -156,3 +156,11 @@ pass in graphql playground
     age
   }
 }
+
+mutation{
+  addNewUser(firstName: "Sagar", age: 20){
+    id, 
+    firstName,
+    age    
+  }
+}
