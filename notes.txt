@@ -123,3 +123,36 @@ moviesRouter.js
 --------------------
 const router = express.Router();
 export const moviesRouter = router;
+
+Mongoose
+-----------
+
+Create our own schema => models  => {} => document
+Schema, Validation, Query Building and performance
+
+Graphql => GUI
+----------
+
+type definition => user object type
+query definition -root query
+mutation - CRUD functionality
+
+json-server --watch db.json --port 9000
+
+
+{
+  "id": "5",
+  "firstName": "Rakesh",
+  "age": 29
+}
+
+pass in graphql playground
+---------------------------
+
+
+{
+  user(id:"3"){
+    firstName,
+    age
+  }
+}
