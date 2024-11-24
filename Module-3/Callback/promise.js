@@ -27,7 +27,7 @@ function async3() {
     })
 }
 
-
+//promise chaining 
 // async1()
 // async2()
 // async3()
