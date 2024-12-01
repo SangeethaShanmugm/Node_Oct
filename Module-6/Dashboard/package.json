@@ -15,9 +15,10 @@
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.26.0",
     "@babel/register": "^7.25.9",
+    "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "mongodb": "^6.11.0",
+    "mongodb": "^3.2.5",
     "nodemon": "^3.1.7"
   }
 }
