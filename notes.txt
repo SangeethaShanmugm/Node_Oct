@@ -164,3 +164,8 @@ mutation{
     age    
   }
 }
+
+//socket.io
+socket.emit() => send response only to sender
+socket.broadcast.emit() => send to everyone except sender
+io.emit() => to everyone, including sender

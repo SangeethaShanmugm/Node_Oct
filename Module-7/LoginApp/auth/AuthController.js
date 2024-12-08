@@ -3,13 +3,18 @@ const router = express.Router()
 const bodyParser = require("body-parser")
 const bcrypt = require("bcryptjs")
 const user = require("../Model/user")
-// router.use(bodyParser.urlencoded({ extended: true }))
-// router.use(bodyParser.json())
+const jwt = require("jsonwebtoken")
+const config = require("../config")
+const LocalStorage = require("node-localstorage").LocalStorage;
+localStorage = new LocalStorage("../scratch")
+
+router.use(bodyParser.urlencoded({ extended: true }))
+router.use(bodyParser.json())
 
 router.post("/register", async (req, res) => {
     try {
         const { name, email, password } = req.body
-        const isEmailValid = user.findOne({ email })
+        const isEmailValid = await user.findOne({ email })
         if (isEmailValid) {
             return res.send(400).json({ message: "Invalid credentials" })
         }
@@ -33,7 +38,25 @@ router.post("/register", async (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    res.send("Login")
+    user.findOne({ email: req.body.email }, async (err, user) => {
+        if (err) return res.send("server error")
+        console.log(user)
+        if (!user) {
+            return res.send({ auth: false, token: null, msg: "Invalid credentials" })
+        }
+        const storedDbPassword = user.password
+        console.log(storedDbPassword)
+        const isPasswordMatch = await bcrypt.compare(req.body.password, storedDbPassword)
+        console.log(isPasswordMatch)
+        if (!isPasswordMatch) {
+            return res.send({ auth: false, token: null, msg: "Invalid credentials" })
+        }
+        var token = jwt.sign({ id: user._id }, config.secret, {
+            expiresIn: 86400
+        })
+        localStorage.setItem("authToken", token)
+        res.redirect("/users/profile")
+    })
 })
 
 module.exports = router
