@@ -169,3 +169,26 @@ mutation{
 socket.emit() => send response only to sender
 socket.broadcast.emit() => send to everyone except sender
 io.emit() => to everyone, including sender
+
+Docker:
+
+docker login
+
+docker build . -t sangeethashanmugam/weatherapp
+
+docker image ls
+
+docker run -p 49163:8080 -d sangeethashanmugam/weatherapp
+
+docker ps
+
+docker logs 545ff28b991b
+
+ docker run -p 49163:8080 -d sangeethashanmugam/weatherapp
+
+
+ spawn -  real time log monitor
+
+ exec -> automated scripts
+ 
+ fork -> CPU intensive, image processing, data analysis
